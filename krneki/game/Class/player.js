@@ -1,5 +1,5 @@
 class Player {
-    constructor(positionX, positionY, width, height, color) {
+    constructor(positionX, positionY, size, phat) {
         this.position = {
             x: positionX,
             y: positionY,
@@ -8,26 +8,28 @@ class Player {
             originX: positionX,
             originY: positionY,
         }
-        this.size = {
-            w: width,
-            h: height,
-        }
-        this.side = {
+        
+	this.size = size;
+        
+	this.side = {
             left: positionX,
-            bottom: positionY - height,
+            bottom: positionY - size,
             top: positionY,
-            right: positionX - width,
+            right: positionX - size,
         }
-        this.color = color
+
+	
+	this.image = new Image();
+	this.image.src = phat;
+
     }
     draw() {
-        scr.fillStyle = "#".concat(this.color);
-        scr.fillRect(this.position.x, this.position.y,this.size.w,this.size.h);
+	scr.drawImage(this.image, this.position.x, this.position.y, this.size, this.size);
     }
     positionCollide(x, int ){
         for(let i = 0; i < int; i++){
-            if (this.position.newX+this.size.w > x[i].side.left && this.position.newX < x[i].side.right){
-                if(this.position.newY+this.size.h > x[i].side.top && this.position.newY < x[i].side.bottom){
+            if (this.position.newX+this.size > x[i].side.left && this.position.newX < x[i].side.right){
+                if(this.position.newY+this.size > x[i].side.top && this.position.newY < x[i].side.bottom){
                     return 1;
                 }
             }
@@ -36,9 +38,9 @@ class Player {
     }
     updateSide(){
         this.side.left = this.position.x;
-        this.side.right = this.position.x + this.size.w;
+        this.side.right = this.position.x + this.size;
         this.side.top = this.position.y;
-        this.side.bottom = this.position.y + this.size.h;
+        this.side.bottom = this.position.y + this.size;
     }
     movePlayer(up, down, left, right, speed, x, ArryaSize){
         window.addEventListener("keypress", (event) => {
