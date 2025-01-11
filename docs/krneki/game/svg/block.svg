@@ -1,6 +1,9 @@
  <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
-  <rect width="100" height="100" fill="#3C005F" />
-  <text x="0" y="50" fill="#3a063e" font-size="35">
-    andrej
-  </text>
+  	<rect width="100" height="100" rx="15" ry="15" fill="#3C005F" />
+
+	<circle cx="10" cy="10" r="5" stroke="#505050" stroke-width="4" fill="#F0A410" />
+	<circle cx="90" cy="10" r="5" stroke="#505050" stroke-width="4"  fill="#F0A410" />
+	<circle cx="90" cy="90" r="5" stroke="#505050" stroke-width="4"  fill="#F0A410" />
+	<circle cx="10" cy="90" r="5" stroke="#505050" stroke-width="4"  fill="#F0A410" />
+	
 </svg>
